@@ -371,6 +371,16 @@ ul { list-style: none; }
   max-width: 40ch;
 }
 
+.about__now {
+  margin-top: 1.25rem;
+  padding: 0.9rem 1rem;
+  border-left: 2px solid var(--accent);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  max-width: 40ch;
+}
+.about__now .mono-label { display: block; color: var(--accent); margin-bottom: 0.35rem; }
+
 .areas__row {
   display: flex;
   gap: 1.25rem;

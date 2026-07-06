@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'IBM Plex Mono', ui-monospace, monospace">
+  <rect width="800" height="500" fill="#060d1a"/>
+
+  <!-- grid de fundo -->
+  <g stroke="#16283f" stroke-width="1">
+    <path d="M0 100H800M0 200H800M0 300H800M0 400H800"/>
+    <path d="M100 0V500M200 0V500M300 0V500M400 0V500M500 0V500M600 0V500M700 0V500"/>
+  </g>
+
+  <!-- conectores -->
+  <g stroke="#274668" stroke-width="2" fill="none">
+    <path d="M250 150H320"/>
+    <path d="M480 150H550"/>
+    <path d="M400 190V250"/>
+    <path d="M400 330V380H545"/>
+  </g>
+  <g fill="#1aed63">
+    <circle cx="250" cy="150" r="4"/>
+    <circle cx="320" cy="150" r="4"/>
+    <circle cx="480" cy="150" r="4"/>
+    <circle cx="550" cy="150" r="4"/>
+    <circle cx="400" cy="250" r="4"/>
+    <circle cx="545" cy="380" r="4"/>
+  </g>
+
+  <!-- nós -->
+  <g fill="none" stroke="#274668" stroke-width="1.5">
+    <rect x="90" y="118" width="160" height="64" rx="6"/>
+    <rect x="550" y="118" width="160" height="64" rx="6"/>
+    <rect x="545" y="352" width="165" height="56" rx="6"/>
+  </g>
+  <rect x="320" y="110" width="160" height="80" rx="6" fill="rgba(26,237,99,0.07)" stroke="#1aed63" stroke-width="1.5"/>
+  <rect x="320" y="250" width="160" height="80" rx="6" fill="none" stroke="#274668" stroke-width="1.5"/>
+
+  <g fill="#e8eef7" font-size="18" font-weight="600" text-anchor="middle" font-family="'Chakra Petch', sans-serif">
+    <text x="170" y="146">DJANGO</text>
+    <text x="400" y="142" fill="#1aed63">n8n</text>
+    <text x="630" y="146">NEXT.JS</text>
+    <text x="400" y="282">SHEETS</text>
+    <text x="627" y="378">DASHBOARD</text>
+  </g>
+  <g fill="#5a7089" font-size="12" text-anchor="middle">
+    <text x="170" y="168">backend · API</text>
+    <text x="400" y="168">orquestra · sincroniza</text>
+    <text x="630" y="168">frontend</text>
+    <text x="400" y="304">Google Sheets</text>
+    <text x="627" y="398">agenda · métricas</text>
+  </g>
+
+  <!-- cotas -->
+  <g fill="#5a7089" font-size="12">
+    <text x="40" y="460">AGENDA INTELIGENTE</text>
+    <text x="760" y="460" text-anchor="end">DOCKER COMPOSE</text>
+    <text x="40" y="44" fill="#1aed63">PROTÓTIPO</text>
+  </g>
+</svg>

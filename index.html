@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Arthur Monsores — Software Developer</title>
-    <meta name="description" content="Portfólio de Arthur Monsores — AI Agents, Automação e Business Intelligence." />
+    <meta name="description" content="Portfólio de Arthur Monsores — Automação (n8n), integrações de IA, backend e Business Intelligence." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -41,13 +41,14 @@
         </h1>
 
         <p class="hero__lede load-fade" style="--d:0.35s">
-          Projeto e construo <strong>agentes de IA</strong>, <strong>automações</strong> e
-          <strong>dashboards de BI</strong> que transformam fluxos de trabalho em valor real.
+          Construo <strong>automações com n8n</strong>, integro <strong>agentes de IA</strong> em
+          fluxos de trabalho e desenvolvo <strong>backend</strong> (Django · PostgreSQL) e
+          <strong>dashboards de BI</strong> (Power BI · Metabase).
         </p>
 
         <!-- assinatura: esquema de pipeline -->
         <figure class="schematic load-fade" style="--d:0.5s" role="img"
-                aria-label="Diagrama: dados de entrada passam por um agente de IA e geram valor de saída">
+                aria-label="Diagrama: dados de entrada passam por automação com IA e geram valor de saída">
           <svg viewBox="0 0 960 150" preserveAspectRatio="xMidYMid meet">
             <!-- conectores -->
             <path class="schematic__wire" d="M 250 62 H 380" />
@@ -60,8 +61,8 @@
             </g>
             <g class="schematic__node schematic__node--core">
               <rect x="380" y="26" width="230" height="72" rx="6" />
-              <text class="schematic__label schematic__label--core" x="495" y="56" text-anchor="middle">AI AGENT</text>
-              <text class="schematic__sub" x="495" y="76" text-anchor="middle">decide · automatiza</text>
+              <text class="schematic__label schematic__label--core" x="495" y="56" text-anchor="middle">AUTOMAÇÃO + IA</text>
+              <text class="schematic__sub" x="495" y="76" text-anchor="middle">integra · automatiza</text>
             </g>
             <g class="schematic__node">
               <rect x="740" y="34" width="180" height="56" rx="6" />
@@ -92,7 +93,7 @@
           </div>
           <div class="hero__meta-block">
             <span class="mono-label">Foco</span>
-            <p>AI Agents · Automação · BI</p>
+            <p>Automação · IA aplicada · BI</p>
           </div>
           <a href="#projetos" class="btn btn--solid">Ver projetos ↓</a>
         </div>
@@ -108,32 +109,38 @@
 
         <div class="about">
           <p class="about__text reveal">
-            Estudante de Engenharia de Software apaixonado por tecnologia e por construir
-            soluções que fazem diferença. Concentro meus estudos em agentes de IA,
-            automações inteligentes e Business Intelligence, explorando como sistemas
-            autônomos podem transformar fluxos de trabalho e gerar valor real com dados.
+            Trabalho com automação de processos usando n8n, integração de agentes de IA
+            (como Claude) em fluxos de trabalho, backend com Django e PostgreSQL e
+            Business Intelligence com Power BI e Metabase. Meu foco é transformar
+            processos manuais em fluxos automatizados que geram valor real com dados.
+          </p>
+
+          <p class="about__now reveal">
+            <span class="mono-label">Atuação atual</span>
+            Business Intelligence, testes de funcionalidades e desenvolvimento com apoio
+            de IA na <strong>Interligados Soluções em Tecnologia</strong>.
           </p>
 
           <ul class="areas reveal">
             <li class="areas__row">
               <span class="areas__id mono-label"></span>
               <div>
-                <h3>AI Agents</h3>
-                <p>Agentes autônomos, LLMs e sistemas inteligentes</p>
+                <h3>IA aplicada</h3>
+                <p>Integração de agentes de IA (Claude, LLMs) em automações e fluxos de trabalho</p>
               </div>
             </li>
             <li class="areas__row">
               <span class="areas__id mono-label"></span>
               <div>
                 <h3>Automação</h3>
-                <p>Pipelines, scripts e fluxos automatizados</p>
+                <p>Fluxos com n8n, integrações entre APIs e sistemas</p>
               </div>
             </li>
             <li class="areas__row">
               <span class="areas__id mono-label"></span>
               <div>
                 <h3>Business Intelligence</h3>
-                <p>SQL, PostgreSQL, Power BI e análise de dados</p>
+                <p>SQL, PostgreSQL, Power BI, Metabase e análise de dados</p>
               </div>
             </li>
           </ul>
@@ -142,8 +149,8 @@
         <div class="specs reveal">
           <span class="mono-label specs__label">Especificações</span>
           <ul class="specs__list">
-            <li>Python</li><li>JavaScript</li><li>SQL</li><li>PostgreSQL</li>
-            <li>Power BI</li><li>n8n</li><li>Flask</li><li>Java</li><li>C#</li>
+            <li>Python</li><li>Django</li><li>PostgreSQL</li><li>SQL</li>
+            <li>n8n</li><li>Docker</li><li>Power BI</li><li>Metabase</li><li>JavaScript</li>
           </ul>
         </div>
       </section>
@@ -157,6 +164,20 @@
         </header>
 
         <div class="plates">
+          <a class="plate reveal" href="https://github.com/ArthurMonsores13/Agenda-Inteligente" target="_blank" rel="noopener">
+            <div class="plate__img-wrap">
+              <img src="assets/images/agenda-inteligente.svg" alt="Diagrama da arquitetura da Agenda Inteligente" loading="lazy" />
+            </div>
+            <div class="plate__caption">
+              <span class="plate__num mono-label"></span>
+              <div class="plate__text">
+                <h3>Agenda Inteligente</h3>
+                <p>Agendamento com dashboard: Django + Next.js, n8n orquestrando automação e sync com Google Sheets, via Docker Compose — protótipo em pausa</p>
+              </div>
+              <span class="plate__tags mono-label">Django · Next.js · n8n · Docker</span>
+            </div>
+          </a>
+
           <a class="plate reveal" href="https://github.com/ArthurMonsores13/BillTracker" target="_blank" rel="noopener">
             <div class="plate__img-wrap">
               <img src="assets/images/billtracker-n8n.png" alt="Fluxo n8n do BillTracker" loading="lazy" />
@@ -185,20 +206,6 @@
             </div>
           </a>
 
-          <a class="plate reveal" href="https://github.com/ArthurMonsores13/Project-Flask-Festival" target="_blank" rel="noopener">
-            <div class="plate__img-wrap">
-              <img src="assets/images/fun.jpg" alt="Projeto Flask Festival" loading="lazy" />
-            </div>
-            <div class="plate__caption">
-              <span class="plate__num mono-label"></span>
-              <div class="plate__text">
-                <h3>Flask Festival</h3>
-                <p>Web app em Flask com rotas, templates e estrutura limpa</p>
-              </div>
-              <span class="plate__tags mono-label">Python · Flask</span>
-            </div>
-          </a>
-
           <a class="plate reveal" href="https://github.com/ArthurMonsores13/Documenta-o-SQL" target="_blank" rel="noopener">
             <div class="plate__img-wrap">
               <img src="assets/images/s.jpg" alt="Documentação SQL" loading="lazy" />
@@ -224,6 +231,14 @@
         </header>
 
         <ul class="misc reveal">
+          <li>
+            <a class="misc__row" href="https://github.com/ArthurMonsores13/Project-Flask-Festival" target="_blank" rel="noopener">
+              <span class="misc__num mono-label"></span>
+              <span class="misc__title">Flask Festival</span>
+              <span class="misc__tags mono-label">Python · Flask</span>
+              <span class="misc__arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
           <li>
             <a class="misc__row" href="https://arthurmonsores13.github.io/SoloLeveling/" target="_blank" rel="noopener">
               <span class="misc__num mono-label"></span>
