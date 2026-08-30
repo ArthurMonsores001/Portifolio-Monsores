@@ -90,56 +90,6 @@
           <strong>dashboards de BI</strong> que transformam fluxos de trabalho em valor real.
         </p>
 
-        <!-- assinatura: esquema de pipeline -->
-        <figure class="schematic load-fade" style="--d:0.5s" role="img"
-                aria-label="Diagrama: dados de entrada passam por automação com IA e geram valor de saída">
-          <svg viewBox="0 0 960 150" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <linearGradient id="wireGrad1" gradientUnits="userSpaceOnUse" x1="250" y1="62" x2="380" y2="62">
-                <stop offset="0%" stop-color="var(--accent)" stop-opacity="0" />
-                <stop offset="65%" stop-color="var(--accent)" stop-opacity="0.9" />
-                <stop offset="100%" stop-color="var(--accent-2)" stop-opacity="1" />
-              </linearGradient>
-              <linearGradient id="wireGrad2" gradientUnits="userSpaceOnUse" x1="610" y1="62" x2="740" y2="62">
-                <stop offset="0%" stop-color="var(--accent-2)" stop-opacity="0" />
-                <stop offset="65%" stop-color="var(--accent)" stop-opacity="0.9" />
-                <stop offset="100%" stop-color="var(--accent)" stop-opacity="1" />
-              </linearGradient>
-            </defs>
-            <!-- conectores: trilho estático + pulso de luz viajando -->
-            <path class="schematic__wire" d="M 250 62 H 380" />
-            <path class="schematic__wire" d="M 610 62 H 740" />
-            <path class="schematic__pulse schematic__pulse--a" d="M 250 62 H 380" stroke="url(#wireGrad1)" />
-            <path class="schematic__pulse schematic__pulse--b" d="M 610 62 H 740" stroke="url(#wireGrad2)" />
-            <!-- nós -->
-            <g class="schematic__node">
-              <rect x="40" y="34" width="210" height="56" rx="6" />
-              <text class="schematic__label" x="145" y="58" text-anchor="middle">INPUT</text>
-              <text class="schematic__sub" x="145" y="76" text-anchor="middle">dados · eventos</text>
-            </g>
-            <g class="schematic__node schematic__node--core">
-              <rect x="380" y="26" width="230" height="72" rx="6" />
-              <text class="schematic__label schematic__label--core" x="495" y="56" text-anchor="middle">AUTOMAÇÃO + IA</text>
-              <text class="schematic__sub" x="495" y="76" text-anchor="middle">integra · automatiza</text>
-            </g>
-            <g class="schematic__node">
-              <rect x="740" y="34" width="180" height="56" rx="6" />
-              <text class="schematic__label" x="830" y="58" text-anchor="middle">OUTPUT</text>
-              <text class="schematic__sub" x="830" y="76" text-anchor="middle">valor · insight</text>
-            </g>
-            <!-- pontos de junção -->
-            <circle class="schematic__joint" cx="250" cy="62" r="4" />
-            <circle class="schematic__joint" cx="380" cy="62" r="4" />
-            <circle class="schematic__joint" cx="610" cy="62" r="4" />
-            <circle class="schematic__joint" cx="740" cy="62" r="4" />
-            <!-- cotas -->
-            <text class="schematic__note" x="315" y="48" text-anchor="middle">fluxo</text>
-            <text class="schematic__note" x="675" y="48" text-anchor="middle">entrega</text>
-            <text class="schematic__note" x="40" y="130">PIPELINE DE AUTOMAÇÃO</text>
-            <text class="schematic__note" x="920" y="130" text-anchor="end">ESCALA 1:1</text>
-          </svg>
-        </figure>
-
         <div class="hero__meta load-fade" style="--d:0.65s">
           <div class="hero__meta-block">
             <span class="mono-label">Base</span>
@@ -223,74 +173,69 @@
           <span class="section__rule" aria-hidden="true"></span>
         </header>
 
-        <div class="plates">
-          <a class="plate reveal" href="https://github.com/ArthurMonsores13/Agenda-Inteligente" target="_blank" rel="noopener">
-            <div class="plate__img-wrap">
+        <div class="works">
+          <a class="work reveal" href="https://github.com/ArthurMonsores13/Agenda-Inteligente" target="_blank" rel="noopener">
+            <span class="work__index mono-label">01</span>
+            <div class="work__media">
               <img src="assets/images/agendain.png" alt="Diagrama da arquitetura da Agenda Inteligente" loading="lazy" />
             </div>
-            <div class="plate__caption">
-              <span class="plate__num mono-label"></span>
-              <div class="plate__text">
-                <h3>Agenda Inteligente</h3>
-                <p>Agendamento com dashboard web via Docker Compose: API em Django, dashboard em Next.js e n8n orquestrando a automação e sincronizando dados com Google Sheets</p>
-              </div>
-              <span class="plate__tags mono-label">Django · Next.js · n8n · Docker · Sheets API</span>
+            <div class="work__body">
+              <h3 class="work__title">Agenda Inteligente</h3>
+              <p class="work__desc">Agendamento com dashboard web via Docker Compose: API em Django, dashboard em Next.js e n8n orquestrando a automação e sincronizando dados com Google Sheets</p>
+              <span class="work__tags mono-label">Django · Next.js · n8n · Docker · Sheets API</span>
+              <span class="work__go" aria-hidden="true">Ver projeto <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </a>
 
-          <a class="plate reveal" href="https://monsoresdev.vercel.app/" target="_blank" rel="noopener">
-            <div class="plate__img-wrap">
+          <a class="work reveal" href="https://monsoresdev.vercel.app/" target="_blank" rel="noopener">
+            <span class="work__index mono-label">02</span>
+            <div class="work__media">
               <img src="assets/images/devwebsite.png" alt="Landing page do AMvendas" loading="lazy" />
             </div>
-            <div class="plate__caption">
-              <span class="plate__num mono-label"></span>
-              <div class="plate__text">
-                <h3>Monsores Dev</h3>
-                <p>Meu site de vendas e automação</p>
-              </div>
-              <span class="plate__tags mono-label">Landing Page · n8n · WhatsApp · Vercel</span>
+            <div class="work__body">
+              <h3 class="work__title">Monsores Dev</h3>
+              <p class="work__desc">Meu site de vendas e automação</p>
+              <span class="work__tags mono-label">Landing Page · n8n · WhatsApp · Vercel</span>
+              <span class="work__go" aria-hidden="true">Ver projeto <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </a>
 
-          <a class="plate reveal" href="https://github.com/ArthurMonsores13/BillTracker" target="_blank" rel="noopener">
-            <div class="plate__img-wrap">
+          <a class="work reveal" href="https://github.com/ArthurMonsores13/BillTracker" target="_blank" rel="noopener">
+            <span class="work__index mono-label">03</span>
+            <div class="work__media">
               <img src="assets/images/billfoto.png" alt="Fluxo n8n do BillTracker" loading="lazy" />
             </div>
-            <div class="plate__caption">
-              <span class="plate__num mono-label"></span>
-              <div class="plate__text">
-                <h3>BillTracker Automation</h3>
-                <p>Monitoramento de contas a pagar com alertas via Telegram — em produção no VPS</p>
-              </div>
-              <span class="plate__tags mono-label">n8n · Sheets · Telegram</span>
+            <div class="work__body">
+              <h3 class="work__title">BillTracker Automation</h3>
+              <p class="work__desc">Monitoramento de contas a pagar com alertas via Telegram — em produção no VPS</p>
+              <span class="work__tags mono-label">n8n · Sheets · Telegram</span>
+              <span class="work__go" aria-hidden="true">Ver projeto <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </a>
 
-          <a class="plate reveal" href="https://github.com/ArthurMonsores13/Dashboard_Investimentos" target="_blank" rel="noopener">
-            <div class="plate__img-wrap">
+          <a class="work reveal" href="https://github.com/ArthurMonsores13/Dashboard_Investimentos" target="_blank" rel="noopener">
+            <span class="work__index mono-label">04</span>
+            <div class="work__media">
               <img src="assets/images/mesa.jpg" alt="Dashboard de investimentos" loading="lazy" />
             </div>
-            <div class="plate__caption">
-              <span class="plate__num mono-label"></span>
-              <div class="plate__text">
-                <h3>Dashboard Investimentos</h3>
-                <p>Views analíticas em PostgreSQL consumidas pelo Power BI</p>
-              </div>
-              <span class="plate__tags mono-label">PostgreSQL · Power BI</span>
+            <div class="work__body">
+              <h3 class="work__title">Dashboard Investimentos</h3>
+              <p class="work__desc">Views analíticas em PostgreSQL consumidas pelo Power BI</p>
+              <span class="work__tags mono-label">PostgreSQL · Power BI</span>
+              <span class="work__go" aria-hidden="true">Ver projeto <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </a>
 
-          <a class="plate reveal" href="https://github.com/ArthurMonsores13/Documenta-o-SQL" target="_blank" rel="noopener">
-            <div class="plate__img-wrap">
+          <a class="work reveal" href="https://github.com/ArthurMonsores13/Documenta-o-SQL" target="_blank" rel="noopener">
+            <span class="work__index mono-label">05</span>
+            <div class="work__media">
               <img src="assets/images/s.jpg" alt="Documentação SQL" loading="lazy" />
             </div>
-            <div class="plate__caption">
-              <span class="plate__num mono-label"></span>
-              <div class="plate__text">
-                <h3>SQL Documentation</h3>
-                <p>Estudo completo de SQL e PostgreSQL com exemplos práticos</p>
-              </div>
-              <span class="plate__tags mono-label">SQL · PostgreSQL</span>
+            <div class="work__body">
+              <h3 class="work__title">SQL Documentation</h3>
+              <p class="work__desc">Estudo completo de SQL e PostgreSQL com exemplos práticos</p>
+              <span class="work__tags mono-label">SQL · PostgreSQL</span>
+              <span class="work__go" aria-hidden="true">Ver projeto <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </a>
         </div>
