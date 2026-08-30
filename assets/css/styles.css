@@ -28,7 +28,7 @@
   --font-mono:    'IBM Plex Mono', monospace;
 
   --pad-x: clamp(1.25rem, 4vw, 4rem);
-  --ease:  cubic-bezier(0.6, 0, 0.2, 1);
+  --ease:  cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ── Reset & base ─────────────────────────────────────── */
@@ -99,6 +99,9 @@ ul { list-style: none; }
   background: var(--accent-soft);
   transform: translateY(-3px);
 }
+.btn:active {
+  transform: translateY(-1px) scale(0.97);
+}
 
 .btn--solid {
   background: var(--accent);
@@ -109,6 +112,9 @@ ul { list-style: none; }
   background: #6cb2ff;
   color: var(--bg);
   box-shadow: 0 6px 24px var(--accent-glow);
+}
+.btn--solid:active {
+  box-shadow: 0 3px 12px var(--accent-glow);
 }
 
 /* ── Nav ──────────────────────────────────────────────── */
@@ -447,7 +453,7 @@ ul { list-style: none; }
   transition: border-color 0.35s var(--ease), transform 0.35s var(--ease),
               box-shadow 0.35s var(--ease);
 }
-.plate:hover {
+.plate:hover, .plate:focus-visible {
   border-color: var(--accent);
   transform: translateY(-6px);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--accent-soft);
@@ -467,13 +473,30 @@ ul { list-style: none; }
 }
 .plate::before { top: 6px; left: 8px; }
 .plate::after  { bottom: 6px; right: 8px; }
-.plate:hover::before, .plate:hover::after { opacity: 1; }
+.plate:hover::before, .plate:hover::after,
+.plate:focus-visible::before, .plate:focus-visible::after { opacity: 1; }
 
 .plate__img-wrap {
+  position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
   background: var(--bg-2);
 }
+
+/* spotlight que segue o cursor sobre a imagem do card */
+.plate__img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), var(--accent-glow), transparent 70%);
+  opacity: 0;
+  mix-blend-mode: plus-lighter;
+  transition: opacity 0.4s var(--ease);
+}
+.plate:hover .plate__img-wrap::after,
+.plate:focus-visible .plate__img-wrap::after { opacity: 1; }
 
 .plate__img-wrap img {
   width: 100%;
@@ -483,7 +506,8 @@ ul { list-style: none; }
   transform: scale(1.01);
   transition: filter 0.45s var(--ease), transform 0.45s var(--ease);
 }
-.plate:hover .plate__img-wrap img { filter: saturate(1); transform: scale(1.05); }
+.plate:hover .plate__img-wrap img,
+.plate:focus-visible .plate__img-wrap img { filter: saturate(1); transform: scale(1.05); }
 
 .plate__caption {
   display: grid;
@@ -522,7 +546,7 @@ ul { list-style: none; }
   transition: background 0.3s var(--ease), padding-left 0.3s var(--ease);
 }
 .misc li:first-child .misc__row { border-top: 1px solid var(--line); }
-.misc__row:hover { background: var(--accent-soft); padding-left: 1rem; }
+.misc__row:hover, .misc__row:focus-visible { background: var(--accent-soft); padding-left: 1rem; }
 
 .misc__num { color: var(--accent); }
 
@@ -541,7 +565,8 @@ ul { list-style: none; }
   justify-self: end;
   transition: color 0.3s var(--ease), transform 0.3s var(--ease);
 }
-.misc__row:hover .misc__arrow { color: var(--accent); transform: translate(3px, -3px); }
+.misc__row:hover .misc__arrow,
+.misc__row:focus-visible .misc__arrow { color: var(--accent); transform: translate(3px, -3px); }
 
 /* ── Contato ──────────────────────────────────────────── */
 .contact {
@@ -590,7 +615,7 @@ ul { list-style: none; }
   background: var(--bg-2);
 }
 .footer__top { transition: color 0.3s var(--ease); }
-.footer__top:hover { color: var(--accent); }
+.footer__top:hover, .footer__top:focus-visible { color: var(--accent); }
 
 /* ── Reveal on scroll ─────────────────────────────────── */
 .reveal {
@@ -624,4 +649,5 @@ ul { list-style: none; }
   .schematic__wire { animation: none; }
   .nav__status-dot { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .plate__img-wrap::after { transition: none; opacity: 0 !important; }
 }
