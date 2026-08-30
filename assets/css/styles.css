@@ -379,81 +379,92 @@ ul { list-style: none; }
 }
 .specs__list li:hover { border-color: var(--accent); color: var(--accent-ink); background: var(--accent-soft); }
 
-/* ── Linhas de projeto (works) ─────────────────────────── */
-/* fileiras editoriais alternadas em vez de grid uniforme — cada linha
-   recebe uma dupla de cor própria (mesmo ciclo de 5 das plates antigas),
-   com o número grande como assinatura fixa à esquerda e mídia/texto
-   trocando de lado a cada linha para quebrar a repetição visual */
-.works {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(2.75rem, 6vw, 4.5rem);
+/* ── Cards de projeto — bento (projects) ───────────────── */
+/* grade assimétrica em vez de grid uniforme: o primeiro projeto ganha
+   destaque (tile grande, texto sobre a imagem), os demais formam um
+   mosaico ao redor — cada card mantém a dupla de cor própria (mesmo
+   ciclo de 5 já aprovado), tratamento duotone na imagem pra unificar
+   screenshots variados com a paleta escura/aurora, e badge numerado */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    "a a a a b b"
+    "a a a a c c"
+    "d d d e e e";
+  gap: clamp(1rem, 2.5vw, 1.75rem);
 }
 
-.work {
+.project-card:nth-child(1) { grid-area: a; }
+.project-card:nth-child(2) { grid-area: b; }
+.project-card:nth-child(3) { grid-area: c; }
+.project-card:nth-child(4) { grid-area: d; }
+.project-card:nth-child(5) { grid-area: e; }
+
+.project-card {
   --card-a: var(--accent);
   --card-b: var(--accent-2);
   position: relative;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1.05fr) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(1.25rem, 3.5vw, 2.75rem);
-  padding-top: clamp(1.75rem, 4vw, 2.75rem);
-  border-top: 1px solid var(--border);
-  text-decoration: none;
-  transition: border-color 0.35s var(--ease);
-}
-.work:first-child { border-top: 1px solid var(--border); }
-.work:hover, .work:focus-visible { border-color: color-mix(in srgb, var(--card-a) 45%, var(--border-strong)); }
-
-.work:nth-child(5n+1) { --card-a: #ff4d6d; --card-b: #ffb84d; }
-.work:nth-child(5n+2) { --card-a: #7c5cff; --card-b: #34d3e0; }
-.work:nth-child(5n+3) { --card-a: #34d399; --card-b: #a3e635; }
-.work:nth-child(5n+4) { --card-a: #ff4d6d; --card-b: #7c5cff; }
-.work:nth-child(5n+5) { --card-a: #22c1dc; --card-b: #34d399; }
-
-/* alterna o lado da imagem e do texto a cada linha — a numeração fica
-   sempre fixa à esquerda como um fio condutor entre as linhas */
-.work:nth-child(even) .work__media { grid-column: 3; }
-.work:nth-child(even) .work__body { grid-column: 2; }
-
-.work__index {
-  grid-column: 1;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
-  line-height: 1;
-  color: color-mix(in srgb, var(--card-a) 60%, var(--text-low));
-  opacity: 0.5;
-  transition: opacity 0.35s var(--ease), color 0.35s var(--ease);
-}
-.work:hover .work__index, .work:focus-visible .work__index { opacity: 0.95; }
-
-.work__media {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--surface-2);
   border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.project-card:nth-child(5n+1) { --card-a: #ff4d6d; --card-b: #ffb84d; }
+.project-card:nth-child(5n+2) { --card-a: #7c5cff; --card-b: #34d3e0; }
+.project-card:nth-child(5n+3) { --card-a: #34d399; --card-b: #a3e635; }
+.project-card:nth-child(5n+4) { --card-a: #ff4d6d; --card-b: #7c5cff; }
+.project-card:nth-child(5n+5) { --card-a: #22c1dc; --card-b: #34d399; }
+
+.project-card:hover, .project-card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: color-mix(in srgb, var(--card-a) 45%, var(--border-strong));
 }
 
-/* halo colorido atrás da mídia — vida mesmo em repouso, mais forte no hover */
-.work__media::before {
+/* halo colorido atrás do card — vida mesmo em repouso, mais forte no hover */
+.project-card::before {
   content: '';
   position: absolute;
-  inset: -16px;
+  inset: -18px;
   z-index: -1;
-  border-radius: calc(var(--radius-lg) + 16px);
+  border-radius: calc(var(--radius-lg) + 18px);
   background: linear-gradient(135deg, var(--card-a), var(--card-b));
-  opacity: 0.14;
-  filter: blur(28px);
+  opacity: 0.16;
+  filter: blur(26px);
   transition: opacity 0.4s var(--ease);
   pointer-events: none;
 }
-.work:hover .work__media::before, .work:focus-visible .work__media::before { opacity: 0.48; }
+.project-card:hover::before, .project-card:focus-visible::before { opacity: 0.5; }
 
-/* glow que segue o cursor sobre a imagem, na cor da própria linha */
-.work__media::after {
+.project-card__media {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+
+/* lavagem duotone na cor do card — unifica screenshots variados com a
+   paleta escura/aurora do site, em vez de imagens cruas */
+.project-card__media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--card-a) 55%, transparent), transparent 55%),
+              linear-gradient(0deg, var(--surface) 0%, transparent 40%);
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+}
+
+/* glow que segue o cursor sobre a imagem, na cor do próprio card */
+.project-card__media::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -464,40 +475,65 @@ ul { list-style: none; }
   mix-blend-mode: plus-lighter;
   transition: opacity 0.4s var(--ease);
 }
-.work:hover .work__media::after,
-.work:focus-visible .work__media::after { opacity: 0.5; }
+.project-card:hover .project-card__media::after,
+.project-card:focus-visible .project-card__media::after { opacity: 0.5; }
 
-.work__media img {
+.project-card__media img {
   width: 100%;
+  height: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  transform: scale(1.01);
-  transition: transform 0.5s var(--ease);
   display: block;
+  transform: scale(1.01);
+  transition: transform 0.6s var(--ease);
 }
-.work:hover .work__media img,
-.work:focus-visible .work__media img { transform: scale(1.05); }
+.project-card:hover .project-card__media img,
+.project-card:focus-visible .project-card__media img { transform: scale(1.06); }
 
-.work__body { display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+.project-card__index {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 999px;
+  background: rgba(10, 7, 16, 0.55);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--text);
+}
 
-.work__title {
+.project-card__body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 1.15rem 1.3rem 1.35rem;
+  flex: 1;
+}
+
+.project-card__title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
   color: var(--text);
   letter-spacing: -0.01em;
   transition: color 0.3s var(--ease);
 }
-.work:hover .work__title, .work:focus-visible .work__title { color: var(--card-a); }
+.project-card:hover .project-card__title, .project-card:focus-visible .project-card__title { color: var(--card-a); }
 
-.work__desc {
-  font-size: 0.92rem;
+.project-card__desc {
+  font-size: 0.88rem;
   color: var(--text-mid);
-  line-height: 1.6;
-  max-width: 46ch;
+  line-height: 1.55;
 }
 
-.work__tags {
+.project-card__tags {
   display: inline-block;
   width: fit-content;
   background: color-mix(in srgb, var(--card-a) 14%, var(--surface-2));
@@ -507,13 +543,13 @@ ul { list-style: none; }
   color: var(--text-mid);
 }
 
-.work__go {
+.project-card__go {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  margin-top: 0.15rem;
+  margin-top: 0.1rem;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--card-a);
@@ -521,17 +557,38 @@ ul { list-style: none; }
   transform: translateX(-6px);
   transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
 }
-.work__go svg { flex-shrink: 0; }
-.work:hover .work__go, .work:focus-visible .work__go { opacity: 1; transform: translateX(0); }
+.project-card__go svg { flex-shrink: 0; }
+.project-card:hover .project-card__go, .project-card:focus-visible .project-card__go { opacity: 1; transform: translateX(0); }
 
-@media (max-width: 720px) {
-  .work {
+/* tile em destaque (primeiro projeto): imagem preenche o card inteiro
+   e o texto flutua por cima, sobre um degradê escuro — dá peso editorial
+   ao mosaico sem quebrar a estrutura de card compartilhada */
+.project-card:first-child { min-height: 22rem; }
+.project-card:first-child .project-card__media { position: absolute; inset: 0; border-bottom: none; }
+.project-card:first-child .project-card__media img { height: 100%; aspect-ratio: auto; }
+.project-card:first-child .project-card__body {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 3;
+  background: linear-gradient(180deg, transparent, rgba(10, 7, 16, 0.94) 60%);
+  padding: 3rem 1.5rem 1.5rem;
+}
+.project-card:first-child .project-card__title { font-size: clamp(1.35rem, 2.4vw, 1.75rem); }
+.project-card:first-child .project-card__desc { max-width: 46ch; }
+
+@media (max-width: 860px) {
+  .projects {
     grid-template-columns: 1fr;
-    row-gap: 1rem;
+    grid-template-areas: "a" "b" "c" "d" "e";
   }
-  .work:nth-child(even) .work__media,
-  .work:nth-child(even) .work__body { grid-column: 1; }
-  .work__index { padding-bottom: 0.25rem; }
+  .project-card:first-child { min-height: 0; }
+  .project-card:first-child .project-card__media { position: static; inset: auto; border-bottom: 1px solid var(--border); }
+  .project-card:first-child .project-card__media img { height: auto; aspect-ratio: 16 / 10; }
+  .project-card:first-child .project-card__body {
+    position: static;
+    background: none;
+    padding: 1.15rem 1.3rem 1.35rem;
+  }
 }
 
 /* ── Outros trabalhos ─────────────────────────────────── */
@@ -650,7 +707,7 @@ ul { list-style: none; }
   .load-fade { animation: none; opacity: 1; transform: none; }
   .nav__status-dot { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .work__media::before { transition: none; }
-  .work__media::after { transition: none; opacity: 0 !important; }
-  .work__go { transition: none; }
+  .project-card::before { transition: none; }
+  .project-card__media::after { transition: none; opacity: 0 !important; }
+  .project-card__go { transition: none; }
 }

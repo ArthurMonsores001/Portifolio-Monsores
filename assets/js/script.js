@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Cascata: grupos que revelam item a item, em vez de bloco único ──
   // (cada grupo aponta pro seletor dos filhos diretos que devem ganhar o delay)
   const staggerGroups = [
-    { group: '.works',          items: '.work',        step: 70,  max: 350 },
+    { group: '.projects',       items: '.project-card', step: 70,  max: 350 },
     { group: '.areas',          items: '.areas__row',  step: 80,  max: 240 },
     { group: '.misc',           items: ':scope > li',  step: 50,  max: 350 },
     { group: '.contact__links', items: '.btn',          step: 60,  max: 240 },
@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
     reveals.forEach(el => observer.observe(el));
   }
 
-  // ── Spotlight seguindo o cursor nas linhas de projeto ────
+  // ── Spotlight seguindo o cursor nos cards de projeto ─────
   if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
-    document.querySelectorAll('.work__media').forEach(media => {
+    document.querySelectorAll('.project-card__media').forEach(media => {
       media.addEventListener('mousemove', (e) => {
         const rect = media.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
