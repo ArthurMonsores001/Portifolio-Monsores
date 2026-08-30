@@ -94,9 +94,23 @@
         <figure class="schematic load-fade" style="--d:0.5s" role="img"
                 aria-label="Diagrama: dados de entrada passam por automação com IA e geram valor de saída">
           <svg viewBox="0 0 960 150" preserveAspectRatio="xMidYMid meet">
-            <!-- conectores -->
+            <defs>
+              <linearGradient id="wireGrad1" gradientUnits="userSpaceOnUse" x1="250" y1="62" x2="380" y2="62">
+                <stop offset="0%" stop-color="var(--accent)" stop-opacity="0" />
+                <stop offset="65%" stop-color="var(--accent)" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="var(--accent-2)" stop-opacity="1" />
+              </linearGradient>
+              <linearGradient id="wireGrad2" gradientUnits="userSpaceOnUse" x1="610" y1="62" x2="740" y2="62">
+                <stop offset="0%" stop-color="var(--accent-2)" stop-opacity="0" />
+                <stop offset="65%" stop-color="var(--accent)" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="var(--accent)" stop-opacity="1" />
+              </linearGradient>
+            </defs>
+            <!-- conectores: trilho estático + pulso de luz viajando -->
             <path class="schematic__wire" d="M 250 62 H 380" />
             <path class="schematic__wire" d="M 610 62 H 740" />
+            <path class="schematic__pulse schematic__pulse--a" d="M 250 62 H 380" stroke="url(#wireGrad1)" />
+            <path class="schematic__pulse schematic__pulse--b" d="M 610 62 H 740" stroke="url(#wireGrad2)" />
             <!-- nós -->
             <g class="schematic__node">
               <rect x="40" y="34" width="210" height="56" rx="6" />

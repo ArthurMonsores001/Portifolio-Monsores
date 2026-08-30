@@ -256,14 +256,28 @@ ul { list-style: none; }
 
 .schematic__wire {
   fill: none;
-  stroke: var(--accent);
+  stroke: var(--border-strong);
   stroke-width: 1.5;
-  stroke-dasharray: 6 6;
-  animation: wire-flow 1.2s linear infinite;
 }
 
-@keyframes wire-flow {
-  to { stroke-dashoffset: -12; }
+/* pulso de luz com rastro em degradê viajando pelo cabo — troca as
+   "marching ants" por um único burst que atravessa cada conector,
+   em staggered, como se os dados fluíssem de nó em nó */
+.schematic__pulse {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 45 400;
+  filter: drop-shadow(0 0 5px var(--accent-glow));
+  animation: pulse-travel 2.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+.schematic__pulse--b { animation-delay: 1.3s; }
+
+@keyframes pulse-travel {
+  0%   { stroke-dashoffset: 200; opacity: 0; }
+  10%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { stroke-dashoffset: -250; opacity: 0; }
 }
 
 .schematic__node rect {
@@ -676,6 +690,7 @@ ul { list-style: none; }
   html { scroll-behavior: auto; }
   .load-fade { animation: none; opacity: 1; transform: none; }
   .schematic__wire { animation: none; }
+  .schematic__pulse { animation: none; opacity: 0.6; stroke-dasharray: none; }
   .nav__status-dot { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .plate::before { transition: none; }
