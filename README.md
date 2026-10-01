@@ -22,15 +22,6 @@ Python · Django · PostgreSQL · SQL · n8n · Docker · Power BI · Metabase �
 
 Outros projetos estão listados na seção "Outros trabalhos" do site.
 
-## Rodando localmente
-
-O site é HTML/CSS/JS estático, sem build step. Basta servir a pasta com qualquer servidor estático:
-
-```bash
-python3 -m http.server 8000
-```
-
-E abrir `http://localhost:8000`.
 
 ## Contato
 
