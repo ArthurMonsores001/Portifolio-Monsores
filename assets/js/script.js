@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ── Cascata: grupos que revelam item a item, em vez de bloco único ──
-  // (cada grupo aponta pro seletor dos filhos diretos que devem ganhar o delay)
   const staggerGroups = [
-    { group: '.projects',       items: '.project-card', step: 70,  max: 350 },
-    { group: '.areas',          items: '.areas__row',  step: 80,  max: 240 },
-    { group: '.misc',           items: ':scope > li',  step: 50,  max: 350 },
-    { group: '.contact__links', items: '.btn',          step: 60,  max: 240 },
+    { group: '.pillars',      items: '.pillar', step: 80, max: 240 },
+    { group: '.tl',           items: '.tl-item', step: 100, max: 300 },
+    { group: '.bento',        items: '.card',    step: 70, max: 350 },
+    { group: '.others__list', items: '.more',    step: 50, max: 350 },
+    { group: '.socials',      items: '.social',  step: 60, max: 240 },
   ];
 
   staggerGroups.forEach(({ group, items, max, step }) => {
@@ -36,19 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.08, rootMargin: '0px 0px 40px 0px' });
 
     reveals.forEach(el => observer.observe(el));
-  }
-
-  // ── Spotlight seguindo o cursor nos cards de projeto ─────
-  if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
-    document.querySelectorAll('.project-card__media').forEach(media => {
-      media.addEventListener('mousemove', (e) => {
-        const rect = media.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        media.style.setProperty('--mx', x + '%');
-        media.style.setProperty('--my', y + '%');
-      });
-    });
   }
 
 });
