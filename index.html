@@ -77,7 +77,9 @@
   color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scrollbar-width:none}
+html::-webkit-scrollbar{display:none}
+.sbar{position:fixed;z-index:70;top:0;right:3px;width:6px;border-radius:99px;pointer-events:none;background:linear-gradient(180deg,var(--blue),var(--indigo));opacity:.7;will-change:transform}
 html,body{margin:0;background:var(--bg);color:var(--ink)}
 body{font-family:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
@@ -948,6 +950,23 @@ h1,h2,h3,p{margin:0}
     renderer.render(scene, camera);
   }
   requestAnimationFrame(frame);
+})();
+</script>
+<div class="sbar" id="sbar" aria-hidden="true"></div>
+<script>
+(function(){
+  var el=document.getElementById('sbar'),de=document.documentElement;
+  function upd(){
+    var vh=innerHeight,max=de.scrollHeight-vh;
+    if(max<=0){el.style.display='none';return}
+    var h=Math.max(40,vh*vh/de.scrollHeight);
+    el.style.display='block';el.style.height=h+'px';
+    el.style.transform='translateY('+(scrollY/max*(vh-h))+'px)';
+  }
+  addEventListener('scroll',upd,{passive:true});
+  addEventListener('resize',upd);
+  addEventListener('load',upd);
+  upd();
 })();
 </script>
 </body>
